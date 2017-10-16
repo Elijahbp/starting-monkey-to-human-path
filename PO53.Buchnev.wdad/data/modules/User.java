@@ -3,8 +3,7 @@ package modules;
 public class User {
     private String name;
     private String mail;
-    private int RIGHTS;
-
+    RIGHTS userRights;
     public String getName() {
         return name;
     }
@@ -21,12 +20,12 @@ public class User {
         this.mail = mail;
     }
 
-    public int getRIGHTS() {
-        return RIGHTS;
+    public RIGHTS getRIGHTS() {
+        return this.userRights;
     }
 
-    public void setRIGHTS(int RIGHTS) {
-        this.RIGHTS = RIGHTS;
+    public void setRIGHTS(int newRights) {
+        this.userRights = modules.RIGHTS.values()[newRights];
     }
 
 
@@ -35,7 +34,7 @@ public class User {
     User(String  name, String mail, int rights){
         this.name = name;
         this.mail = mail;
-        this.RIGHTS = rights;
+        this.userRights = RIGHTS.values()[rights];
     }
 
 }
