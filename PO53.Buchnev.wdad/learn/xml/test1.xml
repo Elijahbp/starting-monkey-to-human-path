@@ -1,1 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<notes>
+    <note>
+        <title>Фанфик</title>
+        <text>Где-то далеко в дали, я вдруг увидел лес, который показался мне реальностью.
+        Однако, я твердо осознавал, что нахожусь среди прасторов Оренбургскиих степей.</text>
+        <owner type="owner">
+            <name>Ilya</name>
+            <mail>bip250997@gmail.com</mail>
+        </owner>
+        <users>
+            <user>
+                <name>Sema</name>
+                <mail>Sema@gmail.com</mail>
+                <rights>1</rights>
+            </user>
+            <user>
+                <name>Vlad</name>
+                <mail>Vlad@mail.ru</mail>
+                <rights>2</rights>
+            </user>
+        </users>
+        <cdate>20-04-2011</cdate>
+    </note>
+    <note>
+        <title>Я</title>
+        <text>Я родился для детей xD</text>
+        <owner type="owner">
+            <name>Ilya</name>
+            <mail>bip250997@gmail.com</mail>
+        </owner>
+        <users>
+            <user>
+                <name>Lena</name>
+                <mail>Lena@gmail.com</mail>
+                <rights>1</rights>
+            </user>
+        </users>
+        <cdate>25-09-1997</cdate>
+    </note>
+</notes>
