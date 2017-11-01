@@ -23,13 +23,10 @@ public class XmlTask {
     private ArrayList<Note> notes =new ArrayList<>();
 
     public XmlTask(String path) throws Exception {
-        try {
-            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            document = documentBuilder.parse(new File(path));
-        } catch (Exception e){
+        DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+        document = documentBuilder.parse(new File(path));
 
-        }
         document.normalizeDocument();
         TransferDocumentToList();
     }
@@ -63,7 +60,7 @@ public class XmlTask {
         }
         return note;
     }
-    User user;
+    private User user;
     private User getUserFromNode(Node node){
         if (node.getNodeType() == Node.ELEMENT_NODE){
             Element element = (Element) node;
@@ -72,7 +69,7 @@ public class XmlTask {
         }
         return user;
     }
-    Owner owner;
+    private Owner owner;
     private Owner getOwnerFromNode(Node node){
         if (node.getNodeType() == Node.ELEMENT_NODE){
             owner = new Owner();
@@ -82,7 +79,7 @@ public class XmlTask {
         }
         return owner;
     }
-    Date cdate;
+    private Date cdate;
     private Date getDateFromNode(Node node) throws ParseException {
         if (node.getNodeType() == Node.ELEMENT_NODE){
             cdate = new Date();
