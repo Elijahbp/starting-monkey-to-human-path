@@ -20,7 +20,7 @@ import java.util.*;
 public class XmlTask {
 
     private Document document;
-    private ArrayList<Note> notes;
+    private ArrayList<Note> notes =new ArrayList<>();
 
     public XmlTask(String path) throws Exception {
         try {
@@ -49,7 +49,8 @@ public class XmlTask {
         if (node.getNodeType() == Node.ELEMENT_NODE){
             Element element = (Element) node;
             note.setTitle(getTagValue("title",element));
-            note.setOwner(getOwnerFromNode(node));
+            note.setOwner(getOwnerFromNode(((Element) node).getElementsByTagName("owner").item(0)));
+
             note.setText(getTagValue("text",element));
 
             NodeList usersNode =  element.getElementsByTagName("user");
@@ -62,30 +63,29 @@ public class XmlTask {
         }
         return note;
     }
-
+    User user;
     private User getUserFromNode(Node node){
-        User user = new User();
         if (node.getNodeType() == Node.ELEMENT_NODE){
             Element element = (Element) node;
-            user.setName(getTagValue("name",element));
-            user.setMail(getTagValue("mail",element));
-            user.setRIGHTS(Integer.parseInt(getTagValue("rights",element)));
+            user = new User(element.getAttribute("name"),element.getAttribute("mail"),
+                    Integer.parseInt(element.getAttribute("rights")));
         }
         return user;
     }
-
+    Owner owner;
     private Owner getOwnerFromNode(Node node){
-        Owner owner = new Owner();
         if (node.getNodeType() == Node.ELEMENT_NODE){
+            owner = new Owner();
             Element element = (Element) node;
-            owner = new Owner(getTagValue("name",element),getTagValue("mail",element));
+            owner = new Owner(element.getAttribute("name"),element.getAttribute("mail"));
+
         }
         return owner;
     }
-
+    Date cdate;
     private Date getDateFromNode(Node node) throws ParseException {
-        Date cdate = new Date();
         if (node.getNodeType() == Node.ELEMENT_NODE){
+            cdate = new Date();
             Element element = (Element)node;
             String bufDate = getTagValue("cdate",element);
             DateFormat format = new SimpleDateFormat("dd-mm-yyyy");

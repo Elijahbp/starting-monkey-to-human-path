@@ -24,7 +24,7 @@ public class TestXmlTask {
 
             //testXmlTask.setNewRihgtsAllUser(RIGHTS.RIGHTS_R.getIndex());
             //System.out.println(testXmlTask.getNotes().toString());
-            System.out.println(testXmlTask.getNote(0).toString());
+            //System.out.println(testXmlTask.getNote(0).toString());
             testXmlTask.updateNote(bufOwner,"Фанфик","ДООООБРЫЙ ВЕЧЕР, Я ДИСПЕТЧЕР!!!!!");
             System.out.println(testXmlTask.getNote(0).toString());
 
