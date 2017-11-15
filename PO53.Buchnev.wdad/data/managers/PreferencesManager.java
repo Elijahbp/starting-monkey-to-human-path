@@ -8,6 +8,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 
+
 public class PreferencesManager {
     private static volatile PreferencesManager instance;
     private final Document document;
