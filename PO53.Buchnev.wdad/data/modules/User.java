@@ -53,4 +53,9 @@ public class User {
         User user = (User) obj;
         return (this.name.equals(user.name) && this.mail.equals(user.mail) && this.rights.equals(user.rights));
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode()+199;
+    }
 }

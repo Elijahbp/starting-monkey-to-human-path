@@ -102,5 +102,8 @@ public class Note {
                     && this.users.equals(note.users) && this.cdate.equals(note.cdate));
     }
 
-
+    @Override
+    public int hashCode() {
+        return super.hashCode()+133232;
+    }
 }

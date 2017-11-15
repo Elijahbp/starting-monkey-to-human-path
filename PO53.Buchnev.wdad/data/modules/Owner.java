@@ -41,4 +41,9 @@ public class Owner extends User {
         Owner owner = (Owner) obj;
         return (this.getName().equals(owner.getName()) && this.getMail().equals(owner.getMail()));
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode()+1899;
+    }
 }
