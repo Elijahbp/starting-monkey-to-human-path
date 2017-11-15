@@ -1,3 +1,4 @@
+package data.managers;
 import java.io.File;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -14,7 +15,7 @@ public class PreferencesManager {
     private final Document document;
     private static final String CONFIG_XML_PATH = "E:\\Project\\starting-monkey-to-human-path\\PO53.Buchnev.wdad\\resources\\configuration\\appconfig.xml";
 
-    private PreferencesManager() throws Exception {
+    public PreferencesManager() throws Exception {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         document = builder.parse(new File(CONFIG_XML_PATH));
