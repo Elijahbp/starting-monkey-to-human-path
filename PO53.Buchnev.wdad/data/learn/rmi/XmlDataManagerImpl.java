@@ -1,7 +1,5 @@
 package learn.rmi;
 
-import modules.User;
-
 public class XmlDataManagerImpl implements XmlDataManager {
 
 //    @Override
@@ -20,7 +18,7 @@ public class XmlDataManagerImpl implements XmlDataManager {
 //    }
 
     @Override
-    public int getDoubleK(int k) {
+    public Integer getDoubleK(int k) {
         return k*2;
     }
 }

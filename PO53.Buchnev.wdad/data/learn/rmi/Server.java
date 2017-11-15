@@ -1,6 +1,8 @@
 package learn.rmi;
 
 import data.managers.PreferencesManager;
+import learn.rmi.XmlDataManager;
+import learn.rmi.XmlDataManagerImpl;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -15,7 +17,7 @@ public class Server {
     static final private String CODEBASE_URL = "E:\\Project\\starting-monkey-to-human-path\\PO53.Buchnev.wdad\\data\\managers\\";
     static final private String REGISTRY_HOST = "localhost";
     static final private int REGISTRY_PORT = 1099 ;
-    static final private int EXECUTOR_PORT = 40562 ;
+    static final private int EXECUTOR_PORT = 53895 ;
     static final private String EXECUTOR_NAME = "XmlDataManagerImpl" ;
     static private boolean hasNextOperation = true ;
 
@@ -29,12 +31,12 @@ public class Server {
        System.out.println("prepared");
 
 
-       XmlDataManager xmlDataManager = new XmlDataManagerImpl();
-       XmlDataManager xdmi = (XmlDataManager) UnicastRemoteObject.exportObject(xmlDataManager,0);
+       XmlDataManager xmlRemoteObject = new XmlDataManagerImpl();
+       XmlDataManager xdmi = (XmlDataManager) UnicastRemoteObject.exportObject(xmlRemoteObject,0);
        Registry registry = LocateRegistry.createRegistry(1099);
 
        System.out.println("exporting object...");
-       registry.bind(EXECUTOR_NAME,xdmi);
+       registry.bind("XmlDataManagerImpl",xdmi);
        System.out.println("idl-ing");
     }
 }

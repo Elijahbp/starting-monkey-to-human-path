@@ -1,9 +1,9 @@
 package learn.rmi;
 
-import modules.User;
-
 import java.io.Serializable;
 import java.rmi.Remote;
+import java.rmi.RemoteException;
+
 public interface XmlDataManager extends Remote, Serializable {
 //    public String getNote(User owner,String title);
 //
@@ -11,5 +11,5 @@ public interface XmlDataManager extends Remote, Serializable {
 //
 //    public void setPrivileges(String noteTitle, User user, int newRights);
 
-    public int getDoubleK(int k);
+    public Integer getDoubleK(int k) throws RemoteException;
 }
