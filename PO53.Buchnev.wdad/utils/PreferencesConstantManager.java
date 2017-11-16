@@ -1,8 +1,13 @@
+package utils;
+
 public interface PreferencesConstantManager {
-    public final static String YES = "yes";
-    public final static String NO = "no";
-    public final static String REGISTRY_ADDRESS = "localhost";
-    public final static int REGISTRY_PORT = 1099;
-    public final static String CLASS_PROVIDER = "http://www.yourhost.free.ru/cp/cp.jar";
-    public final static String PATH_SECURITY_POLICY = "E:\\Project\\starting-monkey-to-human-path\\PO53.Buchnev.wdad\\resources\\security_policy\\security.policy";
+
+     String CREATE_REGISTRY = "appconfig.rmi.server.registry.createregistry";
+     String REGISTRY_ADDRESS = "appconfig.rmi.server.registry.registryaddress";
+     String REGISTRY_PORT = "appconfig.rmi.server.registry.registryport\"";
+     String PATH_SECURITY_POLICY = "appconfig.rmi.client.policypath";
+     String USE_CODE_BASE_ONLY="appconfig.rmi.client.usecodebaseonly";
+     String CLASS_PROVIDER = "appconfig.rmi.classprovider";
+
+
 }

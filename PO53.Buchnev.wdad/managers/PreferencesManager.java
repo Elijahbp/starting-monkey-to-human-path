@@ -1,7 +1,9 @@
+package managers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.Properties;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -14,21 +16,18 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import utils.PreferencesConstantManager;
 
 public class PreferencesManager {
     private static volatile PreferencesManager instance;
     private final Document document;
-    private Properties properties;
     private static final String CONFIG_XML_PATH = "E:\\Project\\starting-monkey-to-human-path\\PO53.Buchnev.wdad\\resources\\configuration\\appconfig.xml";
 
-    private PreferencesManager() throws Exception {
+    public PreferencesManager() throws Exception {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         document = builder.parse(new File(CONFIG_XML_PATH));
-        properties = new Properties();
-        properties.loadFromXML(new FileInputStream(new File(CONFIG_XML_PATH)));
     }
-    @Deprecated
     public static PreferencesManager getInstance() throws Exception {
         if (instance == null)
             synchronized (PreferencesManager.class) {
@@ -93,19 +92,38 @@ public class PreferencesManager {
         t.transform(source, result);
     }
 
-    //TODO продумать реализацию properties
+    //TODO продумать реализацию properties ! через docment.... Нет, ну серьезно? Почему не использовать только property с его loadFromXml
     public void setProperty(String key,String value){
-        properties.setProperty(key, value);
+        document.getElementsByTagName(key).item(0).setTextContent(value);
     }
+
     public String getProperty(String key){
-        return properties.getProperty(key);
+        return document.getElementsByTagName(key).item(0).getTextContent();
     }
+
     public void setProperties(Properties prop){
-        this.properties = prop;
+        Enumeration enumerationKeys = prop.keys();
+        Enumeration enumerationElements = prop.elements();
+        while (enumerationElements.hasMoreElements()){
+            document.getElementsByTagName(enumerationKeys.nextElement().toString()).item(0).
+                    setTextContent(enumerationElements.nextElement().toString());
+        }
     }
 
     public Properties getProperties(){
-        return this.properties;
+        Properties properties = new Properties();
+        String [] tags = new String []{
+                PreferencesConstantManager.CREATE_REGISTRY,
+                PreferencesConstantManager.REGISTRY_ADDRESS,
+                String.valueOf(PreferencesConstantManager.REGISTRY_PORT),
+                PreferencesConstantManager.PATH_SECURITY_POLICY,
+                PreferencesConstantManager.USE_CODE_BASE_ONLY,
+                PreferencesConstantManager.CLASS_PROVIDER
+        };
+        for (String tag: tags) {
+            properties.put(tag,document.getElementsByTagName(tag).item(0).getTextContent());
+        }
+        return properties;
     }
 
     public void addBindedObject(String name, String className){
