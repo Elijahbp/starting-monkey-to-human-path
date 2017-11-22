@@ -15,7 +15,9 @@ public class TestXmlTask {
     public static void main(String[] args) {
         try {
 
-            XmlTask testXmlTask = new XmlTask("E:\\Project\\starting-monkey-to-human-path\\PO53.Buchnev.wdad\\learn\\xml\\test1.xml");
+            //E:\Project\starting-monkey-to-human-path\PO53.Buchnev.wdad\resources\configuration\appconfig.xml
+            //E:\Project\starting-monkey-to-human-path\PO53.Buchnev.wdad\learn\rmi\test1.xml
+            XmlTask testXmlTask = new XmlTask("E:\\Project\\starting-monkey-to-human-path\\PO53.Buchnev.wdad\\resources\\configuration\\appconfig.xml");
             List<Note> notes = testXmlTask.getNotes();
             Owner bufOwner = new Owner("Ilya","bip250997@gmail.com");
             //System.out.println(testXmlTask.getNoteText(bufOwner,"Фанфик"));

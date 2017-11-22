@@ -15,4 +15,5 @@ public interface XmlDataManager extends Remote,Serializable{
     public void setPrivileges(String noteTitle, User user, int newRights) throws RemoteException;
     public List<Note> getNotes(Owner owner) throws RemoteException;
 
+    List<Note> getNotes();
 }

@@ -1,6 +1,8 @@
 package learn.rmi;
 
 import managers.PreferencesManager;
+import modules.Note;
+import modules.Owner;
 import utils.PreferencesConstantManager;
 
 import java.rmi.NotBoundException;
@@ -14,12 +16,15 @@ public class Client {
     public final static String EXECUTOR_NAME = "XmlDataManagerImpl";
 
     public static void main(String[] args) throws Exception {
+        
         PreferencesManager preferencesManager = PreferencesManager.getInstance();
-        System.setProperty("java.security.policy", PATH_SECURITY_POLICY);
+        System.setProperty("java.security.policy", preferencesManager.getProperty(PreferencesConstantManager.PATH_SECURITY_POLICY));
+        System.setSecurityManager(new SecurityManager());
         Registry registry = LocateRegistry.getRegistry(preferencesManager.getProperty(PreferencesConstantManager.REGISTRY_ADDRESS),
                 Integer.parseInt(preferencesManager.getProperty(PreferencesConstantManager.REGISTRY_PORT)));
-        XmlDataManager Manager = (XmlDataManager) registry.lookup("XmlDataManager");
+        XmlDataManager Manager = (XmlDataManager) registry.lookup(EXECUTOR_NAME);
 
-        System.out.println(Manager.getNote());
+        Owner owner = new Owner("Ilya","bip250997@gmail.com");
+        System.out.println(Manager.getNotes().toString());
     }
 }

@@ -28,6 +28,7 @@ public class PreferencesManager {
         DocumentBuilder builder = factory.newDocumentBuilder();
         document = builder.parse(new File(CONFIG_XML_PATH));
     }
+
     public static PreferencesManager getInstance() throws Exception {
         if (instance == null)
             synchronized (PreferencesManager.class) {
@@ -94,11 +95,11 @@ public class PreferencesManager {
 
     //TODO продумать реализацию properties ! через docment.... Нет, ну серьезно? Почему не использовать только property с его loadFromXml
     public void setProperty(String key,String value){
-        document.getElementsByTagName(key).item(0).setTextContent(value);
+        document.getElementsByTagName(splitString(key)).item(0).setTextContent(value);
     }
 
     public String getProperty(String key){
-        return document.getElementsByTagName(key).item(0).getTextContent();
+        return document.getElementsByTagName(splitString(key)).item(0).getTextContent();
     }
 
     public void setProperties(Properties prop){
@@ -106,7 +107,7 @@ public class PreferencesManager {
         Enumeration enumerationElements = prop.elements();
         while (enumerationElements.hasMoreElements()){
             document.getElementsByTagName(enumerationKeys.nextElement().toString()).item(0).
-                    setTextContent(enumerationElements.nextElement().toString());
+                    setTextContent(splitString(enumerationElements.nextElement().toString()));
         }
     }
 
@@ -121,7 +122,7 @@ public class PreferencesManager {
                 PreferencesConstantManager.CLASS_PROVIDER
         };
         for (String tag: tags) {
-            properties.put(tag,document.getElementsByTagName(tag).item(0).getTextContent());
+            properties.put(tag,document.getElementsByTagName(splitString(tag)).item(0).getTextContent());
         }
         return properties;
     }
@@ -143,4 +144,9 @@ public class PreferencesManager {
         }
 
     }
+    private String splitString(String str){
+        String[] strArray = str.split("\\.");
+        return strArray[strArray.length-1];
+    }
+
 }

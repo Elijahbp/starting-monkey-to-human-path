@@ -60,8 +60,9 @@ public class XmlTask {
         }
         return note;
     }
-    private User user;
+
     private User getUserFromNode(Node node){
+        User user = null;
         if (node.getNodeType() == Node.ELEMENT_NODE){
             Element element = (Element) node;
             user = new User(element.getAttribute("name"),element.getAttribute("mail"),
@@ -69,13 +70,12 @@ public class XmlTask {
         }
         return user;
     }
-    private Owner owner;
+
     private Owner getOwnerFromNode(Node node){
+        Owner owner = null;
         if (node.getNodeType() == Node.ELEMENT_NODE){
-            owner = new Owner();
             Element element = (Element) node;
             owner = new Owner(element.getAttribute("name"),element.getAttribute("mail"));
-
         }
         return owner;
     }

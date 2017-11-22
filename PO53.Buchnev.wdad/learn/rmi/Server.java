@@ -12,22 +12,29 @@ import static utils.PreferencesConstantManager.CREATE_REGISTRY;
 
 public class Server {
     public final static String EXECUTOR_NAME = "XmlDataManagerImpl";
+    public final static int EXECUTOR_PORT = 20349;
     public static void main(String[] args) throws Exception {
+
+
         PreferencesManager preferencesManager = new PreferencesManager();
-        preferencesManager = new PreferencesManager();
         Registry registry = null;
-        if (preferencesManager.getProperty("CREATE_REGISTRY") == "yes"){
-            registry = LocateRegistry.createRegistry(Integer.parseInt(PreferencesConstantManager.REGISTRY_PORT));
-        }else if (preferencesManager.getProperty("CREATE_REGISTRY") == "no"){
-            registry = LocateRegistry.getRegistry(PreferencesConstantManager.REGISTRY_PORT);
+        System.setProperty("java.rmi.server.logCalls","true");
+        int RegPort =  Integer.parseInt(preferencesManager.getProperty(PreferencesConstantManager.REGISTRY_PORT));
+
+        if (preferencesManager.getProperty(PreferencesConstantManager.CREATE_REGISTRY).equals("yes")){
+            registry = LocateRegistry.createRegistry(RegPort);
+        }else if (preferencesManager.getProperty(PreferencesConstantManager.CREATE_REGISTRY).equals("no")){
+            registry = LocateRegistry.getRegistry(RegPort);
         }
-        System.setProperty("java.security.policy", PreferencesConstantManager.PATH_SECURITY_POLICY);
+        System.setProperty("java.security.policy",preferencesManager.getProperty(PreferencesConstantManager.PATH_SECURITY_POLICY));
+        System.setSecurityManager(new SecurityManager());
         if (registry != null) {
-            XmlDataManager xmlDataManager = new XmlDataManagerImpl();
-            XmlDataManager xdmi = (XmlDataManager) UnicastRemoteObject.exportObject(xmlDataManager, Integer.parseInt(PreferencesConstantManager.REGISTRY_PORT));
+            XmlDataManagerImpl xdmi = new XmlDataManagerImpl();
+            UnicastRemoteObject.exportObject(xdmi,EXECUTOR_PORT);
             registry.rebind(EXECUTOR_NAME, xdmi);
-            preferencesManager.addBindedObject("XmlDataManager",xmlDataManager.getClass().getName());
+            preferencesManager.addBindedObject(EXECUTOR_NAME,XmlDataManager.class.getName());
             preferencesManager.writeXml();
+            System.out.println("YEAP!");
         }
     }
 

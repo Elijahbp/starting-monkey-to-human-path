@@ -1,6 +1,8 @@
 package modules;
 
-public class Owner extends User {
+import java.io.Serializable;
+
+public class Owner extends User  {
 
     public Owner(){}
     public Owner(String name, String mail){
