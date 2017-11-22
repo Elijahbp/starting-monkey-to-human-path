@@ -1,14 +1,11 @@
-package learn.rmi;
+package learn.rmi.Server;
 
 import managers.PreferencesManager;
 import utils.PreferencesConstantManager;
 
-import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-
-import static utils.PreferencesConstantManager.CREATE_REGISTRY;
 
 public class Server {
     public final static String EXECUTOR_NAME = "XmlDataManagerImpl";

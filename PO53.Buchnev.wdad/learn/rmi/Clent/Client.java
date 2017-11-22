@@ -1,16 +1,12 @@
-package learn.rmi;
+package learn.rmi.Clent;
 
+import learn.rmi.Server.XmlDataManager;
 import managers.PreferencesManager;
-import modules.Note;
 import modules.Owner;
 import utils.PreferencesConstantManager;
 
-import java.rmi.NotBoundException;
-import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-
-import static utils.PreferencesConstantManager.*;
 
 public class Client {
     public final static String EXECUTOR_NAME = "XmlDataManagerImpl";
@@ -25,6 +21,6 @@ public class Client {
         XmlDataManager Manager = (XmlDataManager) registry.lookup(EXECUTOR_NAME);
 
         Owner owner = new Owner("Ilya","bip250997@gmail.com");
-        System.out.println(Manager.getNotes().toString());
+        System.out.println(Manager.getNotes(owner).toString());
     }
 }
