@@ -1,7 +1,7 @@
 package learn.rmi.Server;
 
-import learn.rmi.Server.XmlDataManager;
 import learn.xml.XmlTask;
+import managers.DataManager;
 import modules.Note;
 import modules.Owner;
 import modules.User;
@@ -9,9 +9,9 @@ import modules.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XmlDataManagerImpl implements XmlDataManager {
+public class XmlDataManagerImpl implements DataManager {
 
-    private String ServerTestFile = "E:\\Project\\starting-monkey-to-human-path\\out\\production\\starting-monkey-to-human-path\\learn\\rmi\\Server\\test1.xml";
+    private String ServerTestFile = "test1.xml";
     private XmlTask xmlTask;
 
     XmlDataManagerImpl() throws Exception {

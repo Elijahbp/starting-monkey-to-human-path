@@ -1,6 +1,6 @@
 package learn.rmi.Clent;
 
-import learn.rmi.Server.XmlDataManager;
+import managers.DataManager;
 import managers.PreferencesManager;
 import modules.Owner;
 import utils.PreferencesConstantManager;
@@ -18,7 +18,7 @@ public class Client {
         System.setSecurityManager(new SecurityManager());
         Registry registry = LocateRegistry.getRegistry(preferencesManager.getProperty(PreferencesConstantManager.REGISTRY_ADDRESS),
                 Integer.parseInt(preferencesManager.getProperty(PreferencesConstantManager.REGISTRY_PORT)));
-        XmlDataManager Manager = (XmlDataManager) registry.lookup(EXECUTOR_NAME);
+        DataManager Manager = (DataManager) registry.lookup(EXECUTOR_NAME);
 
         Owner owner = new Owner("Ilya","bip250997@gmail.com");
         System.out.println(Manager.getNotes(owner).toString());

@@ -1,5 +1,6 @@
 package learn.rmi.Server;
 
+import managers.DataManager;
 import managers.PreferencesManager;
 import utils.PreferencesConstantManager;
 
@@ -29,7 +30,7 @@ public class Server {
             XmlDataManagerImpl xdmi = new XmlDataManagerImpl();
             UnicastRemoteObject.exportObject(xdmi,EXECUTOR_PORT);
             registry.rebind(EXECUTOR_NAME, xdmi);
-            preferencesManager.addBindedObject(EXECUTOR_NAME,XmlDataManager.class.getName());
+            preferencesManager.addBindedObject(EXECUTOR_NAME, DataManager.class.getName());
             preferencesManager.writeXml();
             System.out.println("YEAP!");
         }

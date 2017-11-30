@@ -10,4 +10,11 @@ public interface PreferencesConstantManager {
      String CLASS_PROVIDER = "appconfig.rmi.classprovider";
 
 
+     String DS_CLASS_NAME = "appconfig.datasource.classname";
+     String DS_DRIVER_TYPE = "appconfig.datasource.drivertype";
+     String DS_HOST = "appconfig.datasource.hostName";
+     String DS_PORT = "appconfig.datasource.port";
+     String DS_DATABASE_NAME = "appconfig.datasource.DBName";
+     String DS_USER = "appconfig.datasource.user";
+     String DS_PASSWORD = "appconfig.datasource.pass";
 }

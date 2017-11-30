@@ -21,7 +21,7 @@ import utils.PreferencesConstantManager;
 public class PreferencesManager {
     private static volatile PreferencesManager instance;
     private final Document document;
-    private static final String CONFIG_XML_PATH = "E:\\Project\\starting-monkey-to-human-path\\PO53.Buchnev.wdad\\resources\\configuration\\appconfig.xml";
+    private static final String CONFIG_XML_PATH = "resources\\configuration\\appconfig.xml";
 
     public PreferencesManager() throws Exception {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -133,6 +133,7 @@ public class PreferencesManager {
         element.setAttribute("class",className);
         document.getElementsByTagName("server").item(0).appendChild(element);
     }
+
     public void removeBindedObject(String name){
         NodeList nodeList = document.getElementsByTagName("bindedobject");
         Element element;
@@ -144,6 +145,7 @@ public class PreferencesManager {
         }
 
     }
+
     private String splitString(String str){
         String[] strArray = str.split("\\.");
         return strArray[strArray.length-1];
