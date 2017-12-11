@@ -29,7 +29,7 @@ public class DataSourceFactory {
     public static javax.sql.DataSource createDataSource(String className,String driverType,String host, int port,
                                                         String dbName, String user,String password) throws ClassNotFoundException, SQLException {
         dataSource = new OracleDataSource();
-        dataSource.setDataSourceName(className);
+        //dataSource.setDataSourceName(className);
         dataSource.setDriverType(driverType);
         dataSource.setServerName(host);
         dataSource.setPortNumber(port);

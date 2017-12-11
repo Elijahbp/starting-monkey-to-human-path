@@ -14,9 +14,7 @@ import java.util.List;
 public class JDBCDataManager implements DataManager{
 
     Statement statement;
-//    JDBCDataManager() throws SQLException {
-//        this.statement = Da;
-//    }
+
     @Override
     public String getNote(Owner owner, String title) throws RemoteException, SQLException {
         String result;
