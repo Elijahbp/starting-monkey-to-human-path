@@ -1,10 +1,10 @@
 package learn.rmi.Server;
 
+import data.modules.Note;
+import data.modules.Owner;
+import data.modules.User;
 import learn.xml.XmlTask;
 import managers.DataManager;
-import modules.Note;
-import modules.Owner;
-import modules.User;
 
 import java.util.ArrayList;
 import java.util.List;

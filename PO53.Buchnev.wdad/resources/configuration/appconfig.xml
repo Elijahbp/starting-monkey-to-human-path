@@ -1,34 +1,5 @@
-<!DOCTYPE appconfig [
-        <!ELEMENT appconfig (rmi, datasource)>
-        <!ELEMENT rmi (server, client, classprovider?)>
-        <!ELEMENT server ((registry, bindedobject*)+)>
-        <!ELEMENT registry (createregistry, registryaddress, registryport)>
-        <!ELEMENT client (policypath, usecodebaseonly)>
-        <!ELEMENT createregistry (#PCDATA)> <!-- valid values: “yes”, “no” -->
-        <!ELEMENT registryaddress (#PCDATA)> <!-- valid IP X.X.X.X (X=>0-255)
-or valid host name -->
-        <!ELEMENT registryport (#PCDATA)>
-        <!ELEMENT bindedobject EMPTY>
-        <!ELEMENT policypath (#PCDATA)>
-        <!-- FS depended path (absolute or relative) to *.policy file -->
-        <!ELEMENT usecodebaseonly (#PCDATA)> <!-- valid values: “yes”, “no” -->
-        <!ELEMENT classprovider (#PCDATA)> <!-- valid FS depended path to local
-directory or *jar file, or URL to *.jar file, containing *.class files -->
-        <!ELEMENT datasource (classname, drivertype, hostName, port, DBName,
-                user, pass)>
-        <!ELEMENT classname (#PCDATA)>
-        <!ELEMENT drivertype (#PCDATA)>
-        <!ELEMENT hostName (#PCDATA)>
-        <!ELEMENT port (#PCDATA)>
-        <!ELEMENT DBName (#PCDATA)>
-        <!ELEMENT user (#PCDATA)>
-        <!ELEMENT pass (#PCDATA)>
-        <!ATTLIST bindedobject
-                name CDATA #REQUIRED
-                class CDATA #REQUIRED
-                >
-        ]!>
-        <?xml version="1.0" encoding="UTF-8" standalone="no"?><appconfig>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <appconfig>
     <rmi>
         <server>
             <registry>
@@ -44,12 +15,12 @@ directory or *jar file, or URL to *.jar file, containing *.class files -->
         <classprovider>http://www.yourhost.free.ru/cp/cp.jar</classprovider>
     </rmi>
     <datasource>
-        <classname></classname>
-        <drivertype></drivertype>
-        <hostName></hostName>
-        <port></port>
-        <DBName></DBName>
-        <user></user>
+        <classname>com.mysql.jdbc.Driver</classname>
+        <drivertype>mysql</drivertype>
+        <hostName>127.0.0.1</hostName>
+        <port>3306</port>
+        <DBName>notes</DBName>
+        <user>root</user>
         <pass></pass>
     </datasource>
 </appconfig>

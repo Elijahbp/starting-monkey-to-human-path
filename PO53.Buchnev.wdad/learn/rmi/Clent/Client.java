@@ -1,8 +1,8 @@
 package learn.rmi.Clent;
 
+import data.modules.Owner;
 import managers.DataManager;
 import managers.PreferencesManager;
-import modules.Owner;
 import utils.PreferencesConstantManager;
 
 import java.rmi.registry.LocateRegistry;

@@ -1,9 +1,9 @@
 package learn.xml;
 
-import modules.Note;
-import modules.Owner;
-import modules.RIGHTS;
-import modules.User;
+import data.modules.Note;
+import data.modules.Owner;
+import data.modules.RIGHTS;
+import data.modules.User;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 

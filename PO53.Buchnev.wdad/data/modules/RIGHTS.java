@@ -1,4 +1,4 @@
-package modules;
+package data.modules;
 
 public enum RIGHTS {
     RIGHTS_NULL(0,"To deprive of the rights"),

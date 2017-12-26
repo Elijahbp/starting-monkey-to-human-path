@@ -1,6 +1,6 @@
-package modules;
+package data.modules;
 
-import javax.jws.soap.SOAPBinding;
+
 import java.io.Serializable;
 
 public class User implements Serializable{
@@ -36,7 +36,7 @@ public class User implements Serializable{
     }
 
     public void setRIGHTS(int newRights) {
-        this.rights = modules.RIGHTS.values()[newRights];
+        this.rights = RIGHTS.values()[newRights];
     }
 
     public String toString() {

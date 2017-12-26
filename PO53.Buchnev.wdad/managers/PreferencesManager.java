@@ -1,8 +1,5 @@
 package managers;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Enumeration;
 import java.util.Properties;
 import javax.xml.parsers.DocumentBuilder;
@@ -14,14 +11,14 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import utils.PreferencesConstantManager;
 
 public class PreferencesManager {
     private static volatile PreferencesManager instance;
     private final Document document;
-    private static final String CONFIG_XML_PATH = "resources\\configuration\\appconfig.xml";
+    private static final String CONFIG_XML_PATH = "D:\\Project\\starting-monkey-to-human-path\\PO53.Buchnev.wdad" +
+            "\\resources\\configuration\\appconfig.xml";
 
     public PreferencesManager() throws Exception {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

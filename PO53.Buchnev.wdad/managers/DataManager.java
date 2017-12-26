@@ -1,8 +1,8 @@
 package managers;
 
-import modules.Note;
-import modules.Owner;
-import modules.User;
+import data.modules.Note;
+import data.modules.Owner;
+import data.modules.User;
 
 import java.io.Serializable;
 import java.rmi.Remote;

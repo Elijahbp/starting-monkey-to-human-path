@@ -7,9 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/PO53.Buchnev.wdad" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/PO53.Buchnev.wdad/data/managers" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/PO53.Buchnev.wdad/data/network" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/PO53.Buchnev.wdad/data/storage" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/PO53.Buchnev.wdad/resource.configuration" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/PO53.Buchnev.wdad/data" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/PO53.Buchnev.wdad/resoure.configuration" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

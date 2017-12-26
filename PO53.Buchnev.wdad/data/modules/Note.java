@@ -1,4 +1,4 @@
-package modules;
+package data.modules;
 
 import java.io.Serializable;
 import java.text.DateFormat;

@@ -1,9 +1,10 @@
 package learn.xml;
 
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
-import modules.Note;
-import modules.Owner;
-import modules.User;
+
+import data.modules.Note;
+import data.modules.Owner;
+import data.modules.User;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -114,7 +115,7 @@ public class XmlTask {
         return noteText;
     }
 
-    public void updateNote(Owner owner,String title, String newText){
+    public void updateNote(Owner owner, String title, String newText){
         for(Note note: notes){
             if (note.getTitle().equals(title) && note.getOwner().equals(owner)){
                 note.setText(newText);
