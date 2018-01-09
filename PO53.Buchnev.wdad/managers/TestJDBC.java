@@ -13,7 +13,7 @@ public class TestJDBC {
         DataSource dataSource = DataSourceFactory.createDataSource();
         JDBCDataManager jdbcDataManager = new JDBCDataManager(dataSource);
 
-        Owner owner = new Owner("Ilya","ezatarri-8558@yopmail.com\n");
+        Owner owner = new Owner("Ilya","ezatarri-8558@yopmail.com");
         List<Note> noteList = jdbcDataManager.getNotes(owner);
         for (Note note:noteList) {
             System.out.println(note.toString());
