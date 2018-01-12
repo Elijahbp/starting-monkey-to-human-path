@@ -5,8 +5,18 @@ import java.io.Serializable;
 public class Owner extends User implements Serializable {
 
     public Owner(){}
-    public Owner(String name, String mail){
-        super(name,mail,RIGHTS.RIGHTS_RnW.getIndex());
+    public Owner(int id,String name, String mail){
+        super(id,name,mail,RIGHTS.RIGHTS_RnW.getIndex());
+    }
+
+    @Override
+    public int getId() {
+        return super.getId();
+    }
+
+    @Override
+    public void setId(int id) {
+        super.setId(id);
     }
 
     @Override
@@ -31,21 +41,19 @@ public class Owner extends User implements Serializable {
     @Override
     public String toString() {
         String stringBuilder = ("+++++" + "Owner" + "+++++" + "\n") +
+                "-----" + this.getId() + "-----" + "\n" +
                 "-----" + this.getName() + "-----" + "\n" +
                 "-----" + this.getMail() + "-----" + "\n";
         return stringBuilder;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || obj.getClass() != this.getClass()) return false;
-        Owner owner = (Owner) obj;
-        return (this.getName().equals(owner.getName()) && this.getMail().equals(owner.getMail()));
+    public boolean equals(Object o) {
+        return super.equals(o);
     }
 
     @Override
     public int hashCode() {
-        return super.hashCode()+1899;
+        return super.hashCode();
     }
 }

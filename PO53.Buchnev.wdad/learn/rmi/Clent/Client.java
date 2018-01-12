@@ -1,18 +1,18 @@
 package learn.rmi.Clent;
 
-import data.modules.Owner;
-import managers.DataManager;
-import managers.PreferencesManager;
-import utils.PreferencesConstantManager;
+        import data.modules.Owner;
+        import managers.DataManager;
+        import managers.PreferencesManager;
+        import utils.PreferencesConstantManager;
 
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
+        import java.rmi.registry.LocateRegistry;
+        import java.rmi.registry.Registry;
 
 public class Client {
     public final static String EXECUTOR_NAME = "XmlDataManagerImpl";
 
     public static void main(String[] args) throws Exception {
-        
+
         PreferencesManager preferencesManager = PreferencesManager.getInstance();
         System.setProperty("java.security.policy", preferencesManager.getProperty(PreferencesConstantManager.PATH_SECURITY_POLICY));
         System.setSecurityManager(new SecurityManager());
@@ -20,7 +20,7 @@ public class Client {
                 Integer.parseInt(preferencesManager.getProperty(PreferencesConstantManager.REGISTRY_PORT)));
         DataManager Manager = (DataManager) registry.lookup(EXECUTOR_NAME);
 
-        Owner owner = new Owner("Ilya","bip250997@gmail.com");
+        Owner owner = new Owner(1,"Ilya","bip250997@gmail.com");
         System.out.println(Manager.getNotes(owner).toString());
     }
 }
