@@ -1,7 +1,7 @@
 package data.storage;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-import managers.PreferencesManager;
+import managers.JDBC.PreferencesManager;
 import utils.PreferencesConstantManager;
 
 import java.sql.*;
@@ -27,7 +27,7 @@ public class DataSourceFactory {
         return dataSource;
     }
     public static javax.sql.DataSource createDataSource(String className,String driverType,String host, int port,
-                                                        String dbName, String user,String password) throws ClassNotFoundException, SQLException {
+                                                        String dbName, String user,String password) {
 
 
         String url = "jdbc:"+driverType+"://"+host+":"+port+"/"+dbName;

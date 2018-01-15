@@ -6,13 +6,17 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Note implements Serializable {
+    private int id;
     private String title;
     private Owner owner;
     private String text;
     private List<User> users;
     private Date cdate;
 
-    public Note(String title, Owner owner, String text, List<User> users, Date cdate) {
+
+
+    public Note(int id, String title, Owner owner, String text, List<User> users, Date cdate) {
+        this.id = id;
         this.title = title;
         this.owner = owner;
         this.text = text;
@@ -22,6 +26,13 @@ public class Note implements Serializable {
 
     public Note() {
 
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -69,7 +80,7 @@ public class Note implements Serializable {
     }
     public void setNewRight(User user, int newRights){
         if(users.contains(user)){
-            this.users.get(users.indexOf(user)).setRIGHTS(newRights);
+            this.users.get(users.indexOf(user)).setRight(this.id,newRights);
         }
     }
 

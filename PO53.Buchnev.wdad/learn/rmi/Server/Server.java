@@ -1,7 +1,7 @@
 //package learn.rmi.Server;
 //
-//import managers.DataManager;
-//import managers.PreferencesManager;
+//import managers.JDBC.DataManager;
+//import managers.JDBC.PreferencesManager;
 //import utils.PreferencesConstantManager;
 //
 //import java.rmi.registry.LocateRegistry;

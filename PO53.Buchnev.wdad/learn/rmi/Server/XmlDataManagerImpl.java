@@ -4,7 +4,7 @@
 //import data.modules.Owner;
 //import data.modules.User;
 //import learn.xml.XmlTask;
-//import managers.DataManager;
+//import managers.JDBC.DataManager;
 //
 //import java.util.ArrayList;
 //import java.util.List;

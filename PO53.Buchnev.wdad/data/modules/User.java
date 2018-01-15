@@ -2,21 +2,28 @@ package data.modules;
 
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 
 public class User implements Serializable{
     private int id;
     private String name;
     private String mail;
-    private RIGHTS rights;
+    private String encrypted_password;
+    private Map<Integer,Integer> rightsForNotes;
+
 
     public User(){}
-    public User(int id,String name, String mail, int rights){
+    public User(int id,String name, String mail, String encrypted_password){
         this.id = id;
         this.name = name;
         this.mail = mail;
-        this.rights = RIGHTS.values()[rights];
+        this.encrypted_password = encrypted_password;
+        this.rightsForNotes = new HashMap<>();
     }
+
     public int getId() {
         return id;
     }
@@ -40,37 +47,35 @@ public class User implements Serializable{
         this.mail = mail;
     }
 
-    public RIGHTS getRIGHTS() {
-        return this.rights;
+    public String getEncrypted_password() {
+        return encrypted_password;
     }
 
-    public void setRIGHTS(int newRights) {
-        this.rights = RIGHTS.values()[newRights];
+    public void setEncrypted_password(String encrypted_password) {
+        this.encrypted_password = encrypted_password;
+    }
+
+    public int getRight(int idNote) {
+        return rightsForNotes.get(idNote);
+    }
+    public Map<Integer, Integer> getRights() {
+        return rightsForNotes;
+    }
+    public void setRight(int idNote, int newRights) {
+        rightsForNotes.put(idNote,newRights);
+    }
+    public void setRights(HashMap<Integer,Integer> rights){
+        this.rightsForNotes.putAll(rights);
     }
 
     public String toString() {
-        String String = ("+++++" + "User" + "+++++" + "\n") +
-                "-----" + this.id + "-----" + "\n" +
-                "-----" + this.name + "-----" + "\n" +
-                "-----" + this.mail + "-----" + "\n" +
-                "-----" + this.rights + "-----" + "\n";
-        return String;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id == user.id &&
-                Objects.equals(name, user.name) &&
-                Objects.equals(mail, user.mail) &&
-                rights == user.rights;
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, name, mail, rights);
+        StringBuilder stringBuilder = new StringBuilder().append("+++++").append("User").append("+++++").append("\n")
+                .append("-----").append(this.id).append("-----").append("\n")
+                .append("-----").append(this.name).append("-----").append("\n")
+                .append("-----").append(this.mail).append("-----").append("\n");
+        for (Entry<Integer,Integer> rights: rightsForNotes.entrySet()){
+            stringBuilder.append("--").append(rights.getKey()).append(" _ ").append(rights.getValue()).append("--").append("\n");
+        }
+        return stringBuilder.toString();
     }
 }

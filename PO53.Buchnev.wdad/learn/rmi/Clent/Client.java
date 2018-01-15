@@ -1,8 +1,8 @@
 package learn.rmi.Clent;
 
         import data.modules.Owner;
-        import managers.DataManager;
-        import managers.PreferencesManager;
+        import managers.JDBC.DataManager;
+        import managers.JDBC.PreferencesManager;
         import utils.PreferencesConstantManager;
 
         import java.rmi.registry.LocateRegistry;
@@ -20,7 +20,7 @@ public class Client {
                 Integer.parseInt(preferencesManager.getProperty(PreferencesConstantManager.REGISTRY_PORT)));
         DataManager Manager = (DataManager) registry.lookup(EXECUTOR_NAME);
 
-        Owner owner = new Owner(1,"Ilya","bip250997@gmail.com");
+        Owner owner = new Owner(1,"Ilya","bip250997@gmail.com",null,1);
         System.out.println(Manager.getNotes(owner).toString());
     }
 }

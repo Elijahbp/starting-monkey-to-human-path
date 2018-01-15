@@ -1,4 +1,4 @@
-package managers;
+package managers.JDBC;
 import java.io.File;
 import java.util.Enumeration;
 import java.util.Properties;
@@ -125,7 +125,7 @@ public class PreferencesManager {
     }
 
     public void addBindedObject(String name, String className){
-        Element element = (Element) document.createElement("bindedobject");
+        Element element = document.createElement("bindedobject");
         element.setAttribute("name",name);
         element.setAttribute("class",className);
         document.getElementsByTagName("server").item(0).appendChild(element);

@@ -7,7 +7,7 @@
                 <registryaddress>localhost</registryaddress>
                 <registryport>1099</registryport>
             </registry>
-        <bindedobject class="managers.DataManager" name="XmlDataManagerImpl"/><bindedobject class="managers.DataManager" name="XmlDataManagerImpl"/><bindedobject class="managers.DataManager" name="XmlDataManagerImpl"/><bindedobject class="managers.DataManager" name="XmlDataManagerImpl"/><bindedobject class="managers.DataManager" name="XmlDataManagerImpl"/><bindedobject class="managers.DataManager" name="XmlDataManagerImpl"/></server>
+        <bindedobject class="managers.JDBC.DataManager" name="XmlDataManagerImpl"/><bindedobject class="managers.JDBC.DataManager" name="XmlDataManagerImpl"/><bindedobject class="managers.JDBC.DataManager" name="XmlDataManagerImpl"/><bindedobject class="managers.JDBC.DataManager" name="XmlDataManagerImpl"/><bindedobject class="managers.JDBC.DataManager" name="XmlDataManagerImpl"/><bindedobject class="managers.JDBC.DataManager" name="XmlDataManagerImpl"/></server>
         <client>
             <policypath>E:\Project\starting-monkey-to-human-path\out\production\starting-monkey-to-human-path\resources\security_policy\security.policy</policypath>
             <usecodebaseonly>no</usecodebaseonly>

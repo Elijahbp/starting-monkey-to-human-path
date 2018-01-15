@@ -5,8 +5,9 @@ import java.io.Serializable;
 public class Owner extends User implements Serializable {
 
     public Owner(){}
-    public Owner(int id,String name, String mail){
-        super(id,name,mail,RIGHTS.RIGHTS_RnW.getIndex());
+    public Owner(int id,String name, String mail,String encrypted_password,int idNote){
+        super(id,name,mail,encrypted_password);
+        super.setRight(idNote,RIGHTS.RIGHTS_RnW.getIndex());
     }
 
     @Override
